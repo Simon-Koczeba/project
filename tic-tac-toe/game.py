@@ -5,9 +5,15 @@ def run():
     """Run the game!"""
     print("Welcome to Tic Tac Toe")
     playingfield = [" "," "," "," "," "," "," "," "," "]
-    print_playingfield(playingfield)
-    input_playingfield(playingfield, "X")
-    print_playingfield(playingfield)
+    player = "X"
+    game_running = True
+    while game_running:
+        print_playingfield(playingfield)
+        input_playingfield(playingfield, player)
+        if player == "X":
+            player = "O"
+        else:
+            player = "X"
 
 
 def print_playingfield(playingfield):
@@ -20,7 +26,7 @@ def print_playingfield(playingfield):
 def input_playingfield(playingfield, player):
     yourturn = True
     while yourturn:
-        user_input = input("Player 1's turn: ")
+        user_input = input(f"{player}'s turn: ")
         if user_input == "A1":
             if playingfield[0] == " ":
                 playingfield[0] = player
