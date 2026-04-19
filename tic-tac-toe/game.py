@@ -7,9 +7,11 @@ def run():
     playingfield = [" "," "," "," "," "," "," "," "," "]
     player = "X"
     game_running = True
+    print_playingfield(playingfield)
     while game_running:
-        print_playingfield(playingfield)
         input_playingfield(playingfield, player)
+        print_playingfield(playingfield)
+        game_running = check_playingfield(playingfield, player, game_running)
         if player == "X":
             player = "O"
         else:
@@ -83,6 +85,62 @@ def input_playingfield(playingfield, player):
                 print("field blocked")
         else:
             print("invalid input")
+
+
+def check_playingfield(playingfield, player, game_running):
+    if playingfield[0] == playingfield[1] == playingfield[2] == "X":
+        print("X won!")
+        return False
+    elif playingfield[0] == playingfield[1] == playingfield[2] == "O":
+        print("O won!")
+        return False
+    elif playingfield[3] == playingfield[4] == playingfield[5] == "X":
+        print("X won!")
+        return False
+    elif playingfield[3] == playingfield[4] == playingfield[5] == "O":
+        print("O won!")
+        return False
+    elif playingfield[6] == playingfield[7] == playingfield[8] == "X":
+        print("X won!")
+        return False
+    elif playingfield[6] == playingfield[7] == playingfield[8] == "O":
+        print("O won!")
+        return False
+    elif playingfield[0] == playingfield[4] == playingfield[8] == "X":
+        print("X won!")
+        return False
+    elif playingfield[0] == playingfield[4] == playingfield[8] == "O":
+        print("O won!")
+        return False
+    elif playingfield[2] == playingfield[4] == playingfield[6] == "X":
+        print("X won!")
+        return False
+    elif playingfield[2] == playingfield[4] == playingfield[6] == "O":
+        print("O won!")
+        return False
+    elif playingfield[0] == playingfield[3] == playingfield[6] == "X":
+        print("X won!")
+        return False
+    elif playingfield[0] == playingfield[3] == playingfield[6] == "O":
+        print("O won!")
+        return False
+    elif playingfield[1] == playingfield[4] == playingfield[7] == "X":
+        print("X won!")
+        return False
+    elif playingfield[1] == playingfield[4] == playingfield[7] == "O":
+        print("O won!")
+        return False
+    elif playingfield[2] == playingfield[5] == playingfield[8] == "X":
+        print("X won!")
+        return False
+    elif playingfield[2] == playingfield[5] == playingfield[8] == "O":
+        print("O won!")
+        return False
+    elif playingfield[0] != " " and playingfield[1] != " " and playingfield[2] != " " and playingfield[3] != " " and playingfield[4] != " " and playingfield[5] != " " and playingfield[6] != " " and playingfield[7] != " " and playingfield[8] != " ":
+        print("it is a tie!")
+        return False
+    else:
+        return True
 
 
 if __name__ == '__main__':
